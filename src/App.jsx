@@ -4,7 +4,8 @@ import './App.css';
 import Header from './components/Header';
 
 function App() {
-  const [userId, setUserId] = useState(null);
+  //change useState to userId = 1 or null for "login" vs "welcome" view
+  const [userId, setUserId] = useState([1]);
   const [error, setError] = useState(null);
   //const [user, setUser] = useState({ name: 'Fish' });
 
