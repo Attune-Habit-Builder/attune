@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import seeds from './spotifySeeds';
 import YourTune from './YourTune';
 import VibeDropDown from './VibeDropDown';
-import CreateHabit from './CreateHabit';
+
 import UserHabits from './UserHabits';
 
 //dailyHabits = [{ 'Nature Walk' : `?seed_genres=${seed_genres}&target_valence=${target_valence}&target_energy=${target_energy}&target_tempo=${target_tempo}&target_acousticness=${target_acousticness}&target_danceability=${target_danceability}` }]
@@ -44,11 +44,10 @@ function Main({ userId }) {
   return (
     <main>
       {/*yourtune randomly generates a vibe: this should be replaced by createdHabit*/}
-      <YourTune seed={seeds[vibe]()} updateVibe={setVibe} />
-
-      <VibeDropDown options={seeds} updateVibe={setVibe} />
-      {/* <CreateHabit options={seeds} updateVibe={setVibe} /> */}
       <UserHabits dailyHabits={dailyHabits} />
+      <VibeDropDown options={seeds} updateVibe={setVibe} />
+
+      <YourTune seed={seeds[vibe]()} updateVibe={setVibe} />
     </main>
   );
 }

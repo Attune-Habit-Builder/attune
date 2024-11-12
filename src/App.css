@@ -31,6 +31,9 @@ input {
   box-sizing: border-box;
 }
 
+button.add-habit {
+  background-color: gray;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f7fc;

@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 //import edit from '../edit.svg';
 import TodaysDate from './TodayDate';
 import logo from '../patrice.png';
+import CreateHabit from './CreateHabit';
 function Header({ userId, setUserId, setError }) {
   const searchInputRef = useRef(null);
 
@@ -26,11 +27,14 @@ function Header({ userId, setUserId, setError }) {
 
   const [inputValue, setInputValue] = useState('');
 
-  const handleClick = (event) => {
-    // setUser to the value that's been input into the form on click
-    setUser(inputValue);
+  //   const handleClick = (event) => {
+  //     // setUser to the value that's been input into the form on click
+  //     setUser(inputValue);
 
-    //logic to send the inputvalue to the database to create the user
+  //     //logic to send the inputvalue to the database to create the user
+  //   };
+  const createHabit = () => {
+    return <CreateHabit />;
   };
 
   return userId ? (
@@ -42,6 +46,9 @@ function Header({ userId, setUserId, setError }) {
         add habit button
         {/*todo: add logic for routing to /addhabit*/}
       <TodaysDate />
+      <button type='submit' className='add-habit' onClick={createHabit}>
+        Add Habit
+      </button>
     </header>
   ) : (
     <header className='App-header container'>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import vibes from './seedKeysToVibe';
+import seeds from './spotifySeeds';
 
 function VibeDropDown({ options, updateVibe }) {
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState(vibes);
 
   const handleChange = (event) => {
     const value = event.target.value;
