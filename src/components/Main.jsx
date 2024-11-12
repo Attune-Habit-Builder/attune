@@ -43,7 +43,7 @@ function Main({ dailyHabits }) {
       <YourTune seed={seeds[vibe]()} updateVibe={setVibe} />
 
       <VibeDropDown options={seeds} updateVibe={setVibe} />
-      <CreateHabit />
+      <CreateHabit options={seeds} updateVibe={setVibe} />
       <UserHabits dailyHabits={tempData} />
     </main>
   );

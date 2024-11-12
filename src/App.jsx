@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Header setUser={setUser} user={user.name} />
+      <Header setUser={setUser} user={user} />
       <Main dailyHabits={dailyHabits} />
     </div>
   );

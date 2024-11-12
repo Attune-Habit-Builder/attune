@@ -1,24 +1,19 @@
-import React from 'react';
-import edit from '../edit.svg';
+import React, { useState } from 'react';
 import TodaysDate from './TodayDate';
-
+import logo from '../patrice.png';
 function Header({ setUser, user }) {
-  // const useEffect = () =>
+  const [inputValue, setInputValue] = useState('');
 
-  //     const handleClick = (event) => {
+  const handleClick = (event) => {
+    // setUser to the value that's been input into the form on click
+    setUser(inputValue);
 
-  //         const input event.target.value;
-
-  //         // fetch user
-
-  //         setUser(user);
-
-  //     }
+    //logic to send the inputvalue to the database to create the user
+  };
 
   return user ? (
     <header className='App-header container'>
-      <h1 className='App-header'>attune</h1>
-
+      <img src={logo} className='App-header logo' />
       <h2>{`Welcome, ${user}`}</h2>
       {/*button for adding a habit
       <button type='submit'>
@@ -28,22 +23,20 @@ function Header({ setUser, user }) {
     </header>
   ) : (
     <header className='App-header container'>
-      <h1 className='App-header'>Attune</h1>
-      {/*create form with value of username / password to submit on handleclick*/}
-      <form className='app-header'>
-        <label for='username'>username: </label>
-        <input
-          type='text'
-          name='username'
-          id='username'
-          required
-          minlength='4'
-          maxlength='15'
-          size='10'
-        ></input>
-        <label for='password'>password: </label>
-        <input type='password' id='password' name='password'></input>
-      </form>
+      <div className='login-container'>
+        <img src={logo} className='App-header logo' />
+        {/*create form with value of username / password to submit on handleclick*/}
+        <form className='app-header' method='POST' action='../user/create'>
+          <input
+            type='text'
+            value={user}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder='your username'
+            name='username'
+          ></input>
+          <input type='submit' onClick='handle' value='create'></input>
+        </form>
+      </div>
     </header>
   );
 }
